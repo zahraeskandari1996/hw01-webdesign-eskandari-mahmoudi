@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script src="index.js"></script>
+	<script src=
+"https://kit.fontawesome.com/704ff50790.js"
+			crossorigin="anonymous">
+	</script>
+
+    <style>
+        /* restoring all the default
+properties of the browser */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* all similar effects of the web page
+so we applied them to the body */
+body{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* css effects for the color picker */
+input{
+	margin: 2em;
+	width: 3em;
+	height: 3em;
+	border: .4em solid black;
+	border-radius: 20%;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 0 0 .5em #111;
+}
+
+/* for the icon that we have added */
+.fas{
+	margin: 1em;
+}
+
+/* hover effects on color picker */
+input:hover{
+	animation: round 2s infinite;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+	<h1 class="head">
+	رنگ مورد نظر خود را برای پس زمینه انتخاب کنید
+	<i class="fas fa-arrow-right">
+	</i>
+	</h1>
+	<input type="color" id="clr">
+
+    <script>
+        // Selection of id's and classes from html document
+const bgclr = document.getElementById("clr");
+const headingg = document.querySelector(".head");
+
+// Here we are adding event listener which
+// is used to detect the mouse movement
+bgclr.addEventListener("input", () => {
+// This updates the background color which is
+// picked by the user from the picker
+document.body.style.backgroundColor = bgclr.value;
+
+// This is the conditional statement that is used
+// to change the text color from BLACK to WHITE
+// when the background color changes to dark!
+if (
+	bgclr.value.includes("00") ||
+	bgclr.value.includes("0a") ||
+	bgclr.value.includes("0b") ||
+	bgclr.value.includes("0c") ||
+	bgclr.value.includes("0d") ||
+	bgclr.value.includes("0e") ||
+	bgclr.value.includes("0f")
+) {
+	headingg.style.color = "#fff";
+} else {
+	headingg.style.color = "#000";
+}
+});
+
+    </script>
+</body>
+</html>
